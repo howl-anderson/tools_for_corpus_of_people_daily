@@ -71,6 +71,7 @@ python ./split_data.py
 根据1998语料库的词性标记说明，词性标记：`t`、`nr`、`ns` 和 `nt` 依次对应的实体是时间（DATE）、人名（PERSON）、地名（GPE）、组织机构名（ORG, organization）。
 
 本项目的 NER 标记系统支持:
+
 * `BILUO`，在 https://spacy.io/usage/linguistic-features#updating-biluo[The BILUO Scheme] 中详细的介绍了这个标记系统。
 * `BIO`, 在 https://lingpipe-blog.com/2009/10/14/coding-chunkers-as-taggers-io-bio-bmewo-and-bmewo/[Coding Chunkers as Taggers: IO, BIO, BMEWO, and BMEWO+] 中详细的介绍了这个标记系统。
 
