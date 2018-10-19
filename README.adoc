@@ -29,6 +29,12 @@
 
 环境要求：python >= 3.5
 
+=== 安装依赖
+[source,shell]
+----
+pip install -r ./requirements.txt
+----
+
 ==== 转换文件编码
 原始文件采用的是 `gbk`，需要将其转换成 `utf-8` 编码
 
