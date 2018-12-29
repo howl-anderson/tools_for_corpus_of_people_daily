@@ -17,7 +17,7 @@ corpus_reader = get_corpus_reader(
         ConllCorpusReader.POS,
         ConllCorpusReader.IGNORE
     ),
-    fileids=['data_False-True-True-False-False-False-False.conllu']
+    fileids=['data_False-True-True-True-True-True-False.conllu']
 )
 
 

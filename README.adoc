@@ -81,7 +81,7 @@ python ./split_data.py
 默认按照 train 90% / dev 0% / test 10% 做的分割，所得到的文件分别为 train.conllu dev.conllu test.conllu ，位于 `./data/split_data` 目录中。
 
 .默认输入和输出
-- 输入文件：`data/conllu/data_False-True-True-False-False-False-False.conllu`
+- 输入文件：`data/conllu/data_False-True-True-True-True-True-False.conllu`
 - 输出文件：`data/split_data/train.conllu`、`data/split_data/dev.conllu` 和 `data/split_data/test.conllu`
 
 == 命名实体识别
