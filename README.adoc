@@ -95,19 +95,37 @@ python ./split_data.py
 默认使用的 `BIO` 系统。
 
 === CRF++ 格式
-CRF++ 系统所需的格式与 CoNLL-U 格式不太一致，需要经过转换。
+CRF++ 系统所需的格式与 CoNLL-U 格式不太一致（CoNLL-U 格式比 CRF++ 格式多第一列的 index），需要经过转换。
 
 ==== 基于词（word)的 NER
 [source,shell]
 ----
-python ./conll_to_crfpp.py
+python ./conll_to_word_crfpp.py
 ----
 
 所得到的文件位于 `./data/split_crfpp` 目录中。
 
+.默认输入和输出
+- 输入文件：`data/split_data/train.conllu`、`data/split_data/dev.conllu` 和 `data/split_data/test.conllu`
+- 输出文件：`data/split_crfpp/train.txt`、`data/split_crfpp/dev.txt` 和 `data/split_crfpp/test.txt`
+
 所得文件样例如下：
 
-image::media/word_crfpp_sample.png[]
+[source,text]
+----
+１９９７年  B-DATE
+的  O
+最后  O
+一  O
+天  O
+，  O
+得克萨斯州  B-GPE
+联邦  O
+地方  O
+法官  O
+肯代尔  B-PERSON
+的  O
+----
 
 ==== 基于字（char)的 NER
 [source,shell]
@@ -117,9 +135,41 @@ python ./conll_to_char_crfpp.py
 
 所得到的文件位于 `./data/split_char_crfpp` 目录中。
 
+.默认输入和输出
+- 输入文件：`data/split_data/train.conllu`、`data/split_data/dev.conllu` 和 `data/split_data/test.conllu`
+- 输出文件：`data/split_char_crfpp/train.txt`、`data/split_char_crfpp/dev.txt` 和 `data/split_char_crfpp/test.txt`
+
 所得文件样例如下：
 
-image::media/char_crfpp_sample.png[]
+[source,text]
+----
+１  B-DATE
+９  I-DATE
+９  I-DATE
+７  I-DATE
+年  L-DATE
+的  O
+最  O
+后  O
+一  O
+天  O
+，  O
+得  B-GPE
+克  I-GPE
+萨  I-GPE
+斯  I-GPE
+州  L-GPE
+联  O
+邦  O
+地  O
+方  O
+法  O
+官  O
+肯  B-PERSON
+代  I-PERSON
+尔  L-PERSON
+的  O
+----
 
 == 中文分词
 === 空白分割格式
@@ -137,6 +187,9 @@ python ./split_token_to_token_conll.py
 ----
 
 所得到的文件分别为 train.txt dev.txt test.txt ，位于 `./data/split_conll` 目录中。
+
+== TODO
+* 增加自定义输入输入的 CLI 入口
 
 == 致谢
 `转换语料库` 部分参考了文章 https://zhuanlan.zhihu.com/p/27597790[达观数据如何打造一个中文NER系统] 的内容
