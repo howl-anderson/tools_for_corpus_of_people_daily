@@ -1,7 +1,7 @@
 = 人民日报语料库处理工具集
 
 包含人民日报语料相关的处理脚本。
-输出的格式为 `CoNLL-U` 格式
+输出的格式为类似 `CoNLL-U` 格式
 
 == 处理流程
 * 文件编码格式转换
@@ -43,6 +43,10 @@ pip install -r ./requirements.txt
 python ./convert_encoding.py
 ----
 
+.默认输入和输出
+- 默认输入文件：`data/1998-01-2003版-带音.txt`
+- 输出文件：`data/raw_data.txt`
+
 ==== 解析并转化语料库
 将原始的语料库格式解析并转换成类似 `CoNLL-U` 格式
 
@@ -61,6 +65,10 @@ python ./parse_data.py
 
 `data_False-True-True-True-True-True-False.conllu` 是为了后续 ENR 任务而准备的，它应用了某些合并操作。
 
+.默认输入和输出
+- 输入文件：`data/raw_data.txt`
+- 输出文件：`data/conllu/data_False-True-True-False-False-False-False.conllu` 和 `data/conllu/data_False-True-True-True-True-True-False.conllu`
+
 == CoNLL-U 格式介绍
 TODO @ http://universaldependencies.org/format.html
 
@@ -72,12 +80,15 @@ python ./split_data.py
 
 默认按照 train 90% / dev 0% / test 10% 做的分割，所得到的文件分别为 train.conllu dev.conllu test.conllu ，位于 `./data/split_data` 目录中。
 
+.默认输入和输出
+- 输入文件：`data/conllu/data_False-True-True-False-False-False-False.conllu`
+- 输出文件：`data/split_data/train.conllu`、`data/split_data/dev.conllu` 和 `data/split_data/test.conllu`
+
 == 命名实体识别
 原始的人民日报语料库中不包含实体信息，但是有 POS 信息，根据人民日报语料库的标注标准，特定类别的名词被标记成了特殊的 POS, 因此可以利用这些信息来完成提取实体的工作。
 根据1998语料库的词性标记说明，词性标记：`t`、`nr`、`ns` 和 `nt` 依次对应的实体是时间（DATE）、人名（PERSON）、地名（GPE）、组织机构名（ORG, organization）。
 
 本项目的 NER 标记系统支持:
-
 * `BILUO`，在 https://spacy.io/usage/linguistic-features#updating-biluo[The BILUO Scheme] 中详细的介绍了这个标记系统。
 * `BIO`, 在 https://lingpipe-blog.com/2009/10/14/coding-chunkers-as-taggers-io-bio-bmewo-and-bmewo/[Coding Chunkers as Taggers: IO, BIO, BMEWO, and BMEWO+] 中详细的介绍了这个标记系统。
 
