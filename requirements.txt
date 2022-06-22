@@ -1,7 +1,7 @@
 Click==7.0
 joblib==0.13.2
 nltk==3.4.5
-numpy==1.17.2
+numpy==1.22.0
 pandas==0.25.1
 ply==3.11
 python-dateutil==2.8.0
